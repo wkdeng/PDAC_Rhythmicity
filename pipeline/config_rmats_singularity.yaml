@@ -1,0 +1,47 @@
+# =============================================================================
+# PDAC_Rhythmicity rMATS/DaPars Pipeline Configuration (OpenPBS + Singularity)
+# For pre-aligned BAM files (e.g., TCGA genomic)
+# =============================================================================
+
+# --- Cohort & Data Paths ---
+cohort: "cptac_genomic"
+bam_dir: "../data/bam/cptac_genomic"
+
+# --- Reference Files ---
+gtf: "../data/ref/gencode.v43.basic.annotation.gtf"
+utr3_bed: "../data/ref/hg38_extracted_3UTR.bed"
+genome_size_file: "../data/ref/hg38_chr_size.txt"
+
+# --- Singularity Container ---
+singularity_sif: "/path/to/bioinformatics.sif"
+
+# --- rMATS Parameters ---
+rmats_python: "python"
+rmats_path: "/root/rmats-turbo/rmats.py"
+read_length: 50
+read_type: "paired"
+
+# --- featureCounts Parameters ---
+featurecounts_path: '/root/subread-2.0.2-Linux-x86_64/bin/featureCounts'
+
+# --- DaPars2 Parameters ---
+dapars_script: "/root/DaPars2/src/DaPars2_Multi_Sample_Multi_Chr.py"
+dapars_coverage: 30
+dapars_chr_file: "hg38_chroms.txt"
+
+# Final APA output contract:
+#   data/polyAPA/{cohort}/result_by_chromosome/{sample}_chr*/  raw DaPars2 chromosome outputs
+#   data/polyAPA/{cohort}/results/{sample}/                   TCGA-style aggregated sample outputs
+polyapa_dir: "../data/polyAPA/cptac_genomic"
+dapars_chromosome_results_dir: "../data/polyAPA/cptac_genomic/result_by_chromosome"
+dapars_results_dir: "../data/polyAPA/cptac_genomic/results"
+dapars_aggregator: "../scripts/aggregate_dapars_chromosome_results.py"
+dapars_allow_missing_chroms: false
+
+# --- EcoTyper Parameters ---
+ecotyper_dir: "../scripts/ecotyper"
+ecotyper_discovery: "Carcinoma"
+ecotyper_threads: 10
+
+# --- PBS Settings (optional) ---
+# pbs_queue: workq

@@ -1,0 +1,46 @@
+# =============================================================================
+# PDAC_Rhythmicity rMATS/DaPars Pipeline Configuration (TACC LS6)
+# For pre-aligned BAM files (e.g., TCGA genomic)
+# =============================================================================
+
+# --- Cohort & Data Paths ---
+cohort: "GTEx"
+bam_dir: "../data/GTEx/bam"
+
+# --- Reference Files ---
+gtf: "../data/ref/gencode.v43.basic.annotation.gtf"
+utr3_bed: "../data/ref/hg38_extracted_3UTR.bed"
+genome_size_file: "../data/ref/hg38_chr_size.txt"
+
+# --- Apptainer Container ---
+apptainer_sif: "/path/to/bioinformatics.sif"
+
+# --- rMATS Parameters ---
+rmats_python: "python"
+rmats_path: "/root/rmats-turbo/rmats.py"
+read_length: 50
+read_type: "paired"
+
+# --- DaPars2 Parameters ---
+dapars_script: "/root/DaPars2/src/DaPars2_Multi_Sample_Multi_Chr.py"
+dapars_coverage: 30
+dapars_chr_file: "hg38_chroms.txt"
+
+# Final APA output contract:
+#   data/polyAPA/{cohort}/result_by_chromosome/{sample}_chr*/  raw DaPars2 chromosome outputs
+#   data/polyAPA/{cohort}/results/{sample}/                   TCGA-style aggregated sample outputs
+polyapa_dir: "../data/polyAPA/GTEx"
+dapars_chromosome_results_dir: "../data/polyAPA/GTEx/result_by_chromosome"
+dapars_results_dir: "../data/polyAPA/GTEx/results"
+dapars_aggregator: "../scripts/aggregate_dapars_chromosome_results.py"
+dapars_allow_missing_chroms: false
+
+# --- EcoTyper Parameters ---
+ecotyper_dir: "../scripts/ecotyper"
+ecotyper_discovery: "Carcinoma"
+ecotyper_threads: 10
+
+# --- SLURM Settings (TACC LS6) ---
+slurm:
+  account: "YOUR_ALLOCATION"
+  partition: "normal"

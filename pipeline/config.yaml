@@ -1,0 +1,38 @@
+# =============================================================================
+# PDAC_Rhythmicity RNA-seq Pipeline Configuration (TACC LS6)
+# =============================================================================
+
+# --- Batch & Data Paths ---
+batch: "geo_batch1"
+raw_dir: "../data/geo_batch1/raw"
+
+# --- Reference Files ---
+kallisto_idx: "../data/ref/gencode.v43.transcripts.kallisto.idx"
+star_idx: "../data/ref/STAR"
+gtf: "../data/ref/gencode.v43.basic.annotation.gtf"
+utr3_bed: "../data/ref/hg38_extracted_3UTR.bed"
+genome_size_file: "../data/ref/hg38_chr_size.txt"
+
+# --- Apptainer Container ---
+# Container should include: STAR, kallisto, samtools, featureCounts, FastQC,
+# MultiQC, rMATS, DaPars, genomeCoverageBed (BEDTools), Python
+apptainer_sif: "/path/to/bioinformatics.sif"
+
+# --- rMATS Parameters ---
+# Paths are relative to the container environment
+rmats_python: "python"
+rmats_path: "rmats.py"
+read_length: 50
+read_type: "paired"
+
+# --- DaPars Parameters ---
+dapars_script: "scripts/dapars/src/DaPars_main.py"
+dapars_coverage: 30
+dapars_fdr: 0.05
+dapars_pdui: 0.5
+dapars_fold_change: 0.59
+
+# --- SLURM Settings (TACC LS6) ---
+slurm:
+  account: "YOUR_ALLOCATION"
+  partition: "normal"

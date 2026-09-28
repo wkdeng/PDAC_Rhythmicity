@@ -1,0 +1,10 @@
+# Versions used for the executed publication notebook (Python 3.13.2).
+numpy==2.4.2
+pandas==2.3.3
+scipy==1.17.1
+matplotlib==3.10.8
+scikit-learn==1.8.0
+ipykernel==7.1.0
+
+# Required only when extracting panel E sources directly from BAMs.
+pysam==0.23.3

@@ -1,0 +1,35 @@
+# Data scaffold and its documentation are the only tracked data content.
+/data/**
+!/data/**/
+!/data/**/.gitkeep
+!/data/README.md
+
+# Outputs and local execution state
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.snakemake/
+.Rhistory
+.RData
+.Ruserdata
+.venv/
+.env
+.env.*
+*.sif
+/pipeline/logs/
+/outputs/
+
+# Third-party datasets, fitted models, and generated results are supplied separately.
+/scripts/DaPars2/Dapars2_Test_Dataset*
+/scripts/ecotyper/example_data/
+/scripts/ecotyper/*Output*/
+/scripts/ecotyper/datasets/**
+!/scripts/ecotyper/datasets/**/
+!/scripts/ecotyper/datasets/**/.gitkeep
+/scripts/ecotyper/utils/**
+!/scripts/ecotyper/utils/**/
+!/scripts/ecotyper/utils/**/.gitkeep
+/scripts/ecotyper/EcoTyper/**
+!/scripts/ecotyper/EcoTyper/**/
+!/scripts/ecotyper/EcoTyper/**/.gitkeep
