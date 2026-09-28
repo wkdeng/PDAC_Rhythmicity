@@ -45,6 +45,6 @@ The workflows produce sequencing quantifications, rMATS outputs and APA results.
 
 Only publication notebooks and relevant supporting code are included. Notebook source is preserved apart from renaming project path defaults; execution outputs, execution counts, transient execution metadata and attachments are removed. Source/provenance documents may name historical files that are intentionally absent. `PUBLICATION_EXPORT.json` records copied files and checksums; new repository guides are not source copies.
 
-Pipeline configuration now uses a placeholder container location and allocation. The Slurm profile resolves its scripts relative to `pipeline/`, where the launchers run. Data scaffolding preserves inherited directory names; see the case-sensitive Linux path notes in the pipeline guide.
+Pipeline configuration now uses a placeholder container location and allocation. The Slurm profile resolves its scripts relative to `pipeline/`, where the launchers run. The shallow data scaffold retains only publication inputs, references and output roots, using inherited directory names; per-sample and historical analysis folders are omitted. See the case-sensitive Linux path notes in the pipeline guide.
 
 Syntax and export-integrity checks were performed; analysis execution requires the omitted data, and Snakemake dry runs require a configured workflow environment. No remote repository or data download is created by this export. Third-party licenses are preserved in their source folders; a license for the project-authored code has not been selected.

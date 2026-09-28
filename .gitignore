@@ -19,17 +19,3 @@ __pycache__/
 *.sif
 /pipeline/logs/
 /outputs/
-
-# Third-party datasets, fitted models, and generated results are supplied separately.
-/scripts/DaPars2/Dapars2_Test_Dataset*
-/scripts/ecotyper/example_data/
-/scripts/ecotyper/*Output*/
-/scripts/ecotyper/datasets/**
-!/scripts/ecotyper/datasets/**/
-!/scripts/ecotyper/datasets/**/.gitkeep
-/scripts/ecotyper/utils/**
-!/scripts/ecotyper/utils/**/
-!/scripts/ecotyper/utils/**/.gitkeep
-/scripts/ecotyper/EcoTyper/**
-!/scripts/ecotyper/EcoTyper/**/
-!/scripts/ecotyper/EcoTyper/**/.gitkeep

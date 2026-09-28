@@ -2,6 +2,12 @@
 
 This is a code-only publication export.  `data/` contains directory placeholders only: do not expect an empty checkout to execute a figure notebook.  Place supplied inputs under `data/` (or point the notebook's documented `CHRONO_*_DATA_DIR` variable to a separately managed data root).  Generated source tables, figures, and logs belong in `data/publication/`, `data/figures/publication/`, and `data/logs/publication/`; they are not primary inputs and should not be versioned as a substitute for the inputs below.
 
+## Scaffold scope
+
+Only the input/reference folders used by the six publication notebooks and their supporting pipelines/helpers are retained. Cohort-level input folders remain, but individual sample, event and historical run directories are supplied with the inputs or created at runtime. `data/publication/` retains the six figure-analysis folders (including locations for validated BAM source bundles); figures and logs retain only their `publication/` parent folders.
+
+Unrelated drug-screening, methylation, exploratory-analysis, legacy figure/log, and per-sample placeholder folders have been removed. The file requirements below still apply; a shallow scaffold does not replace the nested paths in a supplied dataset. CircadianMultiOmics inputs remain external.
+
 ## What can be regenerated
 
 The six notebooks are self-contained **from their stated processed-input boundary**. They do not run legacy notebooks. The included workflows can generate selected RNA-seq quantifications, rMATS and DaPars2 products, but they do not make the harmonized TCGA/GTEx/CPTAC matrices, CHIRAL phases, cohort regressions, ChIP-Atlas matrices, RBP/CLIP resources, or CircadianMultiOmics (CMO) results required by the figures. Maintain an input manifest with source URL/accession, download date, checksum, genome build, and any consent/access restrictions.
